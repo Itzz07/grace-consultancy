@@ -542,7 +542,7 @@ function Home() {
                       Send Message
                     </button>
                   </div>
-                  <div className="p-2 w-full pt-8 mt-8 border-t border-zinc-200 text-center">
+                  <div className="p-2 w-full pt-8 mt-8 border-t border-zinc-500 text-center">
                     <a
                       href="mailto:example@email.com"
                       className="text-pink-500"
