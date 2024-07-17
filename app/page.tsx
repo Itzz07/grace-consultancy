@@ -3,8 +3,34 @@
 import Head from "next/head";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { useEffect, useState } from "react";
 
 function Home() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Show button when page is scrolled up to certain position
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+
+    // Clean up the event listener
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+  
   return (
     <div className=" bg-neutral-50 text-neutral-700">
       <Head>
@@ -538,7 +564,10 @@ function Home() {
                       49 Smith St., Saint Cloud, MN 56301
                     </p>
                     <div className="flex justify-center">
-                      <a href="#" className="text-zinc-500 mx-2">
+                      <a
+                        href="#"
+                        className="text-sky-500 hover:text-sky-600 mx-2"
+                      >
                         <svg
                           fill="currentColor"
                           stroke-linecap="round"
@@ -550,7 +579,10 @@ function Home() {
                           <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                         </svg>
                       </a>
-                      <a href="#" className="text-zinc-500 mx-2">
+                      <a
+                        href="#"
+                        className="text-zinc-500 hover:text-zinc-600 mx-2"
+                      >
                         <svg
                           fill="currentColor"
                           stroke-linecap="round"
@@ -562,7 +594,10 @@ function Home() {
                           <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
                         </svg>
                       </a>
-                      <a href="#" className="text-zinc-500 mx-2">
+                      <a
+                        href="#"
+                        className="text-pink-500 hover:text-pink-600 mx-2"
+                      >
                         <svg
                           fill="none"
                           stroke="currentColor"
@@ -583,7 +618,10 @@ function Home() {
                           <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
                         </svg>
                       </a>
-                      <a href="#" className="text-zinc-500 mx-2">
+                      <a
+                        href="#"
+                        className="text-green-500 hover:text-green-600 mx-2"
+                      >
                         <svg
                           fill="currentColor"
                           stroke-linecap="round"
@@ -602,43 +640,17 @@ function Home() {
             </div>
           </div>
         </section>
-        {/* <div
-          className="bg-cover bg-center h-screen"
-          style={{
-            backgroundImage: `url('./background.jpg')`,
-          }}
-        >
-          <div className="w-full h-screen bg-zinc-50 bg-opacity-70">
-            <div className="grid grid-cols-2  px-40 py-32 justify-center object-center">
-              {" "}
-              <div className="flex flex-col p-4 justify-center text-black">
-                <h1 className="text-5xl  font-extrabold">
-                  Welcome to our Consultancy Website
-                </h1>
-                <p className="text-lg">
-                  We provide expert services in accounting, career choice,
-                  taxation, and related fields.
-                </p>
-              </div>
-              <div className="flex flex-col p-4 justify-center object-center opacity-100">
-                <img
-                  src="/home.png"
-                  width="800"
-                  height="800"
-                  alt="Consultancy Image"
-                  className="object-fit h-full"
-                />
-              </div>
-            </div>
-          </div>
-        </div> */}
-        {/* <h1 className="text-3xl font-bold">
-          Welcome to our Consultancy Website
-        </h1>
-        <p className="text-lg">
-          We provide expert services in accounting, career choice, taxation, and
-          related fields.
-        </p> */}
+
+        {isVisible && (
+          <button
+            className="fixed bottom-6 right-6 bg-pink-500 text-white rounded-full p-4 shadow-md shadow-zinc-50 cursor-pointer transition duration-500 hover:bg-pink-600"
+            onClick={scrollToTop}
+            title="Go to top"
+          >
+            &#8593;
+          </button>
+        )}
+        
       </main>
 
       <Footer />
