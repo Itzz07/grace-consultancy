@@ -52,7 +52,7 @@ function Home() {
           <div className="w-full h-full bg-zinc-900 bg-opacity-70">
             <div className=" px-5 py-24 lg:px-40 mx-auto">
               <div className="text-center mb-20">
-                <h1 className="sm:text-3xl text-2xl font-medium title-font text-zinc-50 mb-4">
+                <h1 className="sm:text-3xl text-2xl font-medium text-zinc-50 mb-4">
                   Accounting Services
                 </h1>
                 <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-zinc-300">
@@ -108,17 +108,20 @@ function Home() {
                 <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
                   <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 mb-5 flex-shrink-0">
                     <svg
+                      xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="2"
-                      className="w-10 h-10"
+                      className="size-10"
                       viewBox="0 0 24 24"
                     >
-                      <circle cx="6" cy="6" r="3"></circle>
-                      <circle cx="6" cy="18" r="3"></circle>
-                      <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25M9 16.5v.75m3-3v3M15 12v5.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+                      />
                     </svg>
                   </div>
                   <div className="flex-grow">
@@ -151,16 +154,20 @@ function Home() {
                 <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
                   <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 mb-5 flex-shrink-0">
                     <svg
+                      xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="2"
-                      className="w-10 h-10"
+                      className="size-11"
                       viewBox="0 0 24 24"
                     >
-                      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                      <circle cx="12" cy="7" r="4"></circle>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                      />
                     </svg>
                   </div>
                   <div className="flex-grow">
@@ -206,8 +213,8 @@ function Home() {
         >
           <div className="w-full h-full bg-zinc-50 bg-opacity-70">
             <div className=" px-5 py-24 lg:px-40 mx-auto  flex-wrap">
-              <div className="text-center mb-20">
-                <h1 className="sm:text-3xl text-2xl font-medium title-font text-zinc-900 mb-4">
+              <div className="text-center mb-16">
+                <h1 className="sm:text-3xl text-2xl font-medium text-zinc-900 mb-4">
                   Career Choice
                 </h1>
                 <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-zinc-600">
@@ -236,7 +243,7 @@ function Home() {
                       className="w-12 h-12"
                       viewBox="0 0 24 24"
                     >
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                     </svg>
                   </div>
                   <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
@@ -268,7 +275,8 @@ function Home() {
                       className="w-12 h-12"
                       viewBox="0 0 24 24"
                     >
-                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                   </div>
                   <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
@@ -292,6 +300,7 @@ function Home() {
                 <div className="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
                   <div className="flex-shrink-0 w-24 h-24 bg-pink-100 text-pink-500 rounded-full inline-flex items-center justify-center">
                     <svg
+                      xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       stroke="currentColor"
                       stroke-linecap="round"
@@ -300,8 +309,11 @@ function Home() {
                       className="w-12 h-12"
                       viewBox="0 0 24 24"
                     >
-                      <circle cx="12" cy="5" r="3"></circle>
-                      <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"
+                      />
                     </svg>
                   </div>
                   <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
@@ -333,8 +345,7 @@ function Home() {
                       className="w-12 h-12"
                       viewBox="0 0 24 24"
                     >
-                      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                      <circle cx="12" cy="7" r="4"></circle>
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                     </svg>
                   </div>
                   <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
