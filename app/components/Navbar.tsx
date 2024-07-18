@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -33,12 +34,19 @@ const Navbar = () => {
           rel="noreferrer"
         >
           <div className="flex justify-center px-4 items-center opacity-100">
-            <Image
+            {/* <Image
               src="./logo.jpg"
               alt="Consultancy Image"
               className="object-fit w-8 lg:w-10 shadow-2xl shadow-zinc-100 rounded-full"
               width={800}
               height={500}
+            /> */}
+            <Image
+              src="/logo.jpg" // Use leading slash for relative path
+              alt="Consultancy Image"
+              width={40} // Set width (adjust as per your design)
+              height={40} // Set height (adjust as per your design)
+              className="object-fit w-8 lg:w-10 shadow-2xl shadow-zinc-100 rounded-full"
             />
           </div>
           <h1 className="text-md lg:text-xl py-1 uppercase font-bold font-sans text-zinc-50 ">
