@@ -1,68 +1,107 @@
-import Link from "next/link";
 import React, { useState } from "react";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
 
   const links = [
-    { id: 1, link: "/" ,page: "home"},
-    { id: 2, link: "/" , page: "accounting" },
-    { id: 3, link: "/" , page: "career-choice" },
-    { id: 4, link: "/" , page: "taxation" },
-    { id: 5, link: "/" , page: "contact" },
+    { id: 1, page: "home", sectionId: "home-section" },
+    { id: 2, page: "Services", sectionId: "training-section" },
+    { id: 3, page: "career choice", sectionId: "career-choice-section" },
+    { id: 4, page: "about", sectionId: "about-section" },
+    { id: 5, page: "contact", sectionId: "contact" },
   ];
 
+  const toggleNav = () => {
+    setNav(!nav);
+  };
+
+  const handleLinkClick = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setNav(false); // Close the mobile nav menu after clicking
+    }
+  };
+
   return (
-//     <nav className="bg-gray-800 p-4">
-//     <div className="max-w-7xl mx-auto flex justify-between items-center">
-//       <div className="text-white font-bold text-lg">Consultancy Name</div>
-//       <ul className="flex space-x-4 text-white">
-//         <li className="hover:text-gray-300">Accounting</li>
-//         <li className="hover:text-gray-300">Career Choice</li>
-//         <li className="hover:text-gray-300">Taxation</li>
-//       </ul>
-//     </div>
-//   </nav>
-    <nav className="flex justify-between items-center w-full h-16 px-4 text-white bg-pink-700 ">
-      <div>
-        <h1 className="text-xl font-semibold font-sans ml-2">
-          <a
-            className="link-underline link-underline-black"
-            href=""
-            target="_blank"
-            rel="noreferrer"
-          >
-            Consultancy Logo
-          </a>
-        </h1>
+    <nav className=" flex justify-between items-center w-full h-14 px-1 text-white bg-gradient-to-bl from-pink-700 to-pink-100 sticky top-0">
+      <div className="px-2">
+        <a
+          className="link-underline link-underline-black flex flex-row justify-center"
+          href="#"
+          rel="noreferrer"
+        >
+          <div className="flex justify-center px-4 items-center opacity-100">
+            <img
+              src="/logo.jpg"
+              alt="Consultancy Image"
+              className="object-fit w-8 lg:w-10 shadow-2xl shadow-zinc-100 rounded-full"
+            />
+          </div>
+          <h1 className="text-md lg:text-xl py-1 uppercase font-bold font-sans text-zinc-50 ">
+            Klusaacounting services
+          </h1>
+        </a>
       </div>
 
       <ul className="hidden md:flex">
-        {links.map(({ id, link,page }) => (
+        {links.map(({ id, page, sectionId }) => (
           <li
             key={id}
-            className="nav-links px-4 cursor-pointer capitalize font-medium text-pink-300 hover:scale-105 hover:text-pink-100 duration-200 link-underline"
+            className="nav-links px-4 cursor-pointer capitalize font-medium text-pink-100 hover:scale-110 hover:text-pink-900 duration-200 link-underline"
+            onClick={() => handleLinkClick(sectionId)}
           >
-            <Link href={link}>{page}</Link>
+            {page}
           </li>
         ))}
       </ul>
 
       <div
-        onClick={() => setNav(!nav)}
+        onClick={toggleNav}
         className="cursor-pointer pr-4 z-10 text-zinc-50 md:hidden"
       >
-        {/* {nav ? <FaTimes size={30} /> : <FaBars size={30} />} */}
+        {nav ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
+            />
+          </svg>
+        )}
       </div>
 
       {nav && (
-        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-800">
-          {links.map(({ id, link }) => (
+        <ul className="flex flex-col justify-center items-center absolute top-14 right-0 w-auto bg-gradient-to-t from-pink-200 to-pink-500">
+          {links.map(({ id, page, sectionId }) => (
             <li
               key={id}
-              className="nav-links px-4 cursor-pointer capitalize font-medium text-red-500 hover:scale-105 hover:text-white duration-200 link-underline"
+              className="nav-links px-4 cursor-pointer capitalize font-medium text-pink-900 hover:scale-110 hover:text-pink-100 duration-200 link-underline"
+              onClick={() => handleLinkClick(sectionId)}
             >
-              <Link href={link}>{link}</Link>
+              {page}
             </li>
           ))}
         </ul>

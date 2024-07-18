@@ -7,6 +7,25 @@ import { useEffect, useState } from "react";
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [
+    "/home/1.png",
+    // "/home/2.png",
+    "/home/3.png",
+    "/home/4.png",
+    "/home/5.png",
+    "/home/6.png",
+    "/home/7.png",
+  ];
+
+  //  changing pics at home page
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+    }, 3000); // Change image every 3 seconds (3000 milliseconds)
+
+    return () => clearInterval(interval); // Cleanup the interval on component unmount
+  }, [images.length]);
 
   // Show button when page is scrolled up to certain position
   useEffect(() => {
@@ -31,13 +50,13 @@ function Home() {
     });
   };
 
-   const scrollToContactSection = () => {
-     const contactSection = document.getElementById("contact");
-     if (contactSection) {
-       contactSection.scrollIntoView({ behavior: "smooth" });
-     }
-   };
-  
+  const scrollToContactSection = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className=" bg-neutral-50 text-neutral-700">
       <Head>
@@ -49,34 +68,36 @@ function Home() {
       <main className=" ">
         {/* home section  */}
         <section
+          id="home-section"
           className="bg-cover bg-center h-full"
           style={{
             backgroundImage: `url('./section/home.jpg')`,
           }}
         >
           <div className="w-full h-full bg-zinc-50 bg-opacity-70">
-            <div className="grid grid-cols-1 md:grid-cols-2 px-1 md:px-16 py-32 lg:px-40 items-center justify-center">
-              <div className="flex flex-col px-5  justify-center items-center text-black">
-                <h1 className="text-center text-3xl md:text-5xl font-extrabold">
-                  Welcome to our Consultancy Website
+            <div className="grid grid-cols-1 md:grid-cols-2 px-1 md:px-16 py-10 lg:px-40 items-center justify-center">
+              <div className="flex flex-col p-10  justify-center items-center ">
+                <h1 className="text-center text-3xl md:text-4xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-black to-pink-500">
+                  Grow Your Career With Us
                 </h1>
-                <p className="text-center text-sm md:text-lg">
-                  We provide expert services in accounting, career choice,
-                  taxation, and related fields.
+
+                <p className="text-center py-1 md:py-5 font-extrabold text-md md:text-lg lg:text-xl text-pink-700">
+                  Merging Minds, Mastering Markets.
                 </p>
               </div>
-              <div className="flex flex-col justify-center py-8 lg:px-8 items-center opacity-100">
+              <div className="flex flex-col justify-center px-8 items-center opacity-100">
                 <img
-                  src="/home.png"
+                  src={images[currentImage]}
                   alt="Consultancy Image"
-                  className="object-fit h-full w-32 md:w-full shadow-2xl shadow-zinc-900 rounded-full"
+                  className={`object-fit h-full w-28 md:w-full shadow-2xl shadow-zinc-900 rounded-full `}
                 />
               </div>
             </div>
           </div>
         </section>
-        {/* accounting section  */}
+        {/* training section  */}
         <section
+          id="training-section"
           className="bg-cover bg-center h-full"
           style={{
             backgroundImage: `url('./section/accounting.jpg')`,
@@ -86,16 +107,19 @@ function Home() {
             <div className=" px-5 py-24 lg:px-40 mx-auto">
               <div className="text-center mb-20">
                 <h1 className="sm:text-3xl text-2xl font-medium text-zinc-50 mb-4">
-                  Accounting Services
+                  Training Services
                 </h1>
                 <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-zinc-300">
-                  Explore our range of accounting services tailored to meet your
-                  business needs.
+                  Accounting packages (pastel, quick books etc), Statutory
+                  returns (ZRA, NAPSA), Interview Coaching and Career
+                  development guidance, Part-time accounting and business
+                  resources.
                 </p>
                 <div className="flex mt-6 justify-center">
                   <div className="w-16 h-1 rounded-full bg-pink-500 inline-flex"></div>
                 </div>
               </div>
+
               <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
                 <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
                   <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 mb-5 flex-shrink-0">
@@ -197,7 +221,7 @@ function Home() {
                     <h2 className="text-zinc-50 text-lg title-font font-medium mb-3">
                       Budget Analysis
                     </h2>
-                    <p className="leading-relaxed text-zinc-200  text-base">
+                    <p className="leading-relaxed text-zinc-200 text-base">
                       Thorough budget analysis to ensure optimal financial
                       management and cost efficiency.
                     </p>
@@ -219,6 +243,7 @@ function Home() {
                   </div>
                 </div>
               </div>
+
               <button
                 className="flex mx-auto mt-16 text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg"
                 onClick={scrollToContactSection}
@@ -230,6 +255,7 @@ function Home() {
         </section>
         {/* career section  */}
         <section
+          id="career-choice-section"
           className="bg-cover bg-center h-full"
           style={{
             backgroundImage: `url('./section/career.jpg')`,
@@ -380,6 +406,7 @@ function Home() {
         </section>
         {/* about section  */}
         <section
+          id="about-section"
           className="bg-cover bg-center h-full"
           style={{
             backgroundImage: `url('./section/about.jpg')`,
@@ -391,29 +418,19 @@ function Home() {
                 <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-zinc-50">
                   About Our Company
                 </h1>
-                <p className="leading-relaxed text-base text-zinc-200">
-                  We are dedicated experts in accounting, taxation consultancy,
-                  and career advisory. Our mission is to provide comprehensive
-                  financial and career solutions tailored to your needs.
+                <p className="leading-relaxed text-justify text-zinc-200">
+                  We area firm dedicated to empowering graduates and entry-level
+                  employees with the skills they need to land thier dream jobs.
+                  Our tailored training services go beyond the basics--we help
+                  individuals discover thier true potential and open doors to
+                  new opportunities. Let's work together to transform your carer
+                  and create a brighter future.
                 </p>
-                <p className="leading-relaxed text-base text-zinc-200 mt-4">
+                {/* <p className="leading-relaxed text-base text-zinc-200 mt-4">
                   With years of experience, we specialize in:
-                </p>
-                <ul className="list-disc pl-5 mt-2">
-                  <li className="text-zinc-200">
-                    Tax planning and compliance services
-                  </li>
-                  <li className="text-zinc-200">
-                    Financial reporting and analysis
-                  </li>
-                  <li className="text-zinc-200">
-                    Career counseling and professional development
-                  </li>
-                  <li className="text-zinc-200">
-                    Business advisory and strategy
-                  </li>
-                </ul>
-                <a
+                </p> */}
+
+                {/* <a
                   href="#"
                   className="text-pink-400 hover:text-pink-500 inline-flex items-center mt-4"
                 >
@@ -427,10 +444,27 @@ function Home() {
                   >
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                   </svg>
-                </a>
+                </a> */}
               </div>
               <div className="flex flex-col md:w-1/2 md:pl-12">
-                <h2 className="title-font font-semibold text-zinc-100 tracking-wider text-sm mb-3">
+                <h1 className="sm:text-2xl text-xl font-medium title-font mb-2 text-zinc-50">
+                  Training Services:
+                </h1>
+                <ul className="list-disc pl-5 mt-2">
+                  <li className="text-zinc-200">
+                    Accounting packages (pastel, quick books etc).
+                  </li>
+                  <li className="text-zinc-200">
+                    Statutory returns (ZRA, NAPSA).
+                  </li>
+                  <li className="text-zinc-200">
+                    Interview Coaching and Career development guidance.
+                  </li>
+                  <li className="text-zinc-200">
+                    Part-time accounting and business resources.
+                  </li>
+                </ul>
+                {/* <h2 className="title-font font-semibold text-zinc-100 tracking-wider text-sm mb-3">
                   Explore More
                 </h2>
                 <nav className="flex flex-wrap list-none -mb-1">
@@ -459,7 +493,7 @@ function Home() {
                       Contact Us
                     </a>
                   </li>
-                </nav>
+                </nav> */}
               </div>
             </div>
           </div>
@@ -544,16 +578,53 @@ function Home() {
                   </div>
                   <div className="p-2 w-full pt-8 mt-8 border-t border-zinc-500 text-center">
                     <a
-                      href="mailto:example@email.com"
+                      href="mailto:klusa.klusaccservices@gmail.com "
                       className="text-pink-500"
                     >
-                      example@email.com
+                      klusa.klusaccservices@gmail.com
                     </a>
-                    <p className="leading-normal my-2">
+                    {/* <p className="leading-normal my-2">
                       49 Smith St., Saint Cloud, MN 56301
-                    </p>
-                    <div className="flex justify-center">
+                    </p> */}
+                    <div className="flex justify-center my-2">
                       <a
+                        href="whatsapp://send?phone=+260976702038 "
+                        className="flex text-green-500 hover:text-green-600 mx-2"
+                      >
+                        <svg
+                          fill="currentColor"
+                          strokeWidth={2}
+                          className="w-6 h-6 me-2"
+                          viewBox="0 0 24 24"
+                          role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                        </svg>
+                        +26 097 670 2038 
+                      </a>
+                      <a
+                        href="tel:+260967316993"
+                        className="flex text-zinc-500 hover:text-zinc-600 mx-2"
+                      >
+                        <svg
+                          fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg"
+                          strokeWidth={2}
+                          className="w-7 h-7 me-2"
+                          // viewBox="0 0 24 24"
+                          viewBox="0 0 100 100"
+                          enable-background="new 0 0 100 100"
+                        >
+                          <path
+                            d="M77.7,63.9l-6.2-5c-2.1-1.7-5.1-1.801-7.3-0.2L58.3,63c-0.8,0.6-1.899,0.5-2.6-0.2L46,54l-8.9-9.8
+	c-0.7-0.7-0.8-1.8-0.2-2.6l4.3-5.9c1.6-2.2,1.5-5.2-0.2-7.3l-5-6.2c-2.2-2.8-6.4-3-8.9-0.5l-5.4,5.4c-1.2,1.2-1.8,2.9-1.8,4.5
+	c0.7,12.7,6.5,24.8,15,33.3s20.5,14.3,33.3,15c1.7,0.1,3.3-0.601,4.5-1.801L78.1,72.7C80.8,70.3,80.5,66.1,77.7,63.9z"
+                          />
+                        </svg>
+                        +26 096 731 6993
+                      </a>
+                      {/* <a
                         href="#"
                         className="text-sky-500 hover:text-sky-600 mx-2"
                       >
@@ -565,8 +636,8 @@ function Home() {
                         >
                           <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                         </svg>
-                      </a>
-                      <a
+                      </a> */}
+                      {/* <a
                         href="#"
                         className="text-zinc-500 hover:text-zinc-600 mx-2"
                       >
@@ -613,7 +684,7 @@ function Home() {
                         >
                           <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
                         </svg>
-                      </a>
+                      </a> */}
                     </div>
                   </div>
                 </div>
@@ -621,7 +692,7 @@ function Home() {
             </div>
           </div>
         </section>
-
+        {/* scroll up arrow  */}
         {isVisible && (
           <button
             className="fixed bottom-6 right-6 bg-pink-500 text-white rounded-full p-4 shadow-md shadow-zinc-50 cursor-pointer transition duration-500 hover:bg-pink-600"
