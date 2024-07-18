@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -32,10 +33,12 @@ const Navbar = () => {
           rel="noreferrer"
         >
           <div className="flex justify-center px-4 items-center opacity-100">
-            <img
-              src="/logo.jpg"
+            <Image
+              src="./logo.jpg"
               alt="Consultancy Image"
               className="object-fit w-8 lg:w-10 shadow-2xl shadow-zinc-100 rounded-full"
+              width={800}
+              height={500}
             />
           </div>
           <h1 className="text-md lg:text-xl py-1 uppercase font-bold font-sans text-zinc-50 ">
