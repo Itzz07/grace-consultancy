@@ -34,13 +34,7 @@ const Navbar = () => {
           rel="noreferrer"
         >
           <div className="flex justify-center px-4 items-center opacity-100">
-            {/* <Image
-              src="./logo.jpg"
-              alt="Consultancy Image"
-              className="object-fit w-8 lg:w-10 shadow-2xl shadow-zinc-100 rounded-full"
-              width={800}
-              height={500}
-            /> */}
+            
             <Image
               src="/logo.jpg" // Use leading slash for relative path
               alt="Consultancy Image"

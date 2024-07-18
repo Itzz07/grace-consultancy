@@ -1,6 +1,7 @@
 "use client";
 
 import Head from "next/head";
+import Image from "next/image";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
@@ -86,9 +87,11 @@ function Home() {
                 </p>
               </div>
               <div className="flex flex-col justify-center px-8 items-center opacity-100">
-                <img
+                <Image
                   src={images[currentImage]}
                   alt="Consultancy Image"
+                  width={1080}
+                  height={1080}
                   className={`object-fit h-full w-28 md:w-full shadow-2xl shadow-zinc-900 rounded-full `}
                 />
               </div>
