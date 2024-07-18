@@ -99,11 +99,11 @@ const Navbar = () => {
       </div>
 
       {nav && (
-        <ul className="flex flex-col justify-center items-center absolute top-14 right-0 w-auto bg-gradient-to-t from-pink-200 to-pink-500">
+        <ul className="flex flex-col justify-center items-center absolute top-14 right-0 w-auto bg-gradient-to-tr from-pink-100 to-pink-500">
           {links.map(({ id, page, sectionId }) => (
             <li
               key={id}
-              className="nav-links px-4 cursor-pointer capitalize font-medium text-pink-900 hover:scale-110 hover:text-pink-100 duration-200 link-underline"
+              className="nav-links p-4 cursor-pointer capitalize font-medium text-pink-900 hover:scale-110 hover:text-pink-100 duration-200 link-underline"
               onClick={() => handleLinkClick(sectionId)}
             >
               {page}
