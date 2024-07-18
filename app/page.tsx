@@ -427,7 +427,7 @@ function Home() {
                   Our tailored training services go beyond the basics--we help
                   individuals discover thier true potential and open doors to
                   new opportunities. Let&apos;s work together to transform your
-                  carer and create a brighter future.
+                  career and create a brighter future.
                 </p>
                 {/* <p className="leading-relaxed text-base text-zinc-200 mt-4">
                   With years of experience, we specialize in:
