@@ -26,7 +26,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className=" flex justify-between z-20 items-center w-full h-14 px-1 text-white bg-gradient-to-bl from-pink-700 to-pink-100 sticky top-0">
+    <nav className="overflow-x-hidden flex justify-between z-20 items-center w-full h-14 px-1 text-white bg-gradient-to-bl from-pink-700 to-pink-100 sticky top-0">
       <div className="px-2">
         <a
           className="link-underline link-underline-black flex flex-row justify-center"
