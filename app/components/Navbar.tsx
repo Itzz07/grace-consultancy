@@ -26,7 +26,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className=" flex justify-between items-center w-full h-14 px-1 text-white bg-gradient-to-bl from-pink-700 to-pink-100 sticky top-0">
+    <nav className=" flex justify-between z-20 items-center w-full h-14 px-1 text-white bg-gradient-to-bl from-pink-700 to-pink-100 sticky top-0">
       <div className="px-2">
         <a
           className="link-underline link-underline-black flex flex-row justify-center"
@@ -49,7 +49,7 @@ const Navbar = () => {
         </a>
       </div>
 
-      <ul className="hidden md:flex">
+      <ul className="hidden lg:flex">
         {links.map(({ id, page, sectionId }) => (
           <li
             key={id}
@@ -63,7 +63,7 @@ const Navbar = () => {
 
       <div
         onClick={toggleNav}
-        className="cursor-pointer pr-4 z-10 text-zinc-50 md:hidden"
+        className="cursor-pointer pr-4 z-10 text-zinc-50 lg:hidden"
       >
         {nav ? (
           <svg
